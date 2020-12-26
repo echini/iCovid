@@ -12,4 +12,13 @@
   	<url-pattern>/registerServlet</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+  	<servlet-name>log</servlet-name>
+  	<servlet-class>register.loginServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>log</servlet-name>
+  	<url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
