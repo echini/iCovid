@@ -16,7 +16,7 @@ public class userdao {
 
 
 	
-	public void loadDriver(String dbDriver){
+	public void  loadDriver(String dbDriver){
 		try {
 			Class.forName(dbDriver);
 		} catch (ClassNotFoundException e) {
