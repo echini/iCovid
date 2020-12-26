@@ -1,0 +1,275 @@
+
+html,body{
+	height:100%;
+	width:100%;
+	font-family: 'Quicksand', sans-serif;
+	color: rgb(80,80,80);
+	background-color: rgb(119, 136, 153);
+}
+
+/*---Navigation---*/
+.navbar{
+	/*text-transform: uppercase;*/
+	background-color: ghostwhite;
+	padding: 1% 0%;
+	font-size: 1.2em;
+	font-weight: 700;
+	height:4em;
+}
+
+.navbar-brand img{
+	height: 100%;
+	padding:0 15px 5px;
+}
+
+.nav-item{
+	color: rgb(80,80,80);
+	display: inline-block;
+	padding-right: .7rem;
+}
+
+.nav-link{
+	display:flex;
+}
+
+.navbar-nav li a:hover {
+	color: darkgrey;
+}
+
+/*---Home page---*/
+
+#home {
+	background: url(img/coronavirus-banner.jpg) no-repeat center center scroll;
+	display: table;
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+	background-size: cover;
+}
+
+.landing-text{
+	display: table-cell;
+	text-align: left;
+	vertical-align: left;
+	padding-left:20px;
+	padding-top: 30px;
+
+}
+
+.landing-text h1{
+	font-size: 500%;
+	font-weight: 700;
+	color: white;
+	text-shadow: .1rem .1rem .5rem black;
+	padding-bottom: 1rem;
+}
+
+.landing-text h3{
+	text-shadow: .1rem .1rem .3rem black;
+	padding-bottom: 1.4rem;
+	color: white;
+}
+
+.btn-lg{
+	border-width: medium;
+	border-radius: 3;
+	border-color: white;
+	color: white;
+	margin-right: .5rem;
+}
+
+
+/*---Login form---*/
+
+#login{
+	background-color: rgb(119, 136, 153);
+	background-size: cover;
+	display: table;
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+}
+#login form{
+	border: 1px solid ghostwhite;
+	background-color:ghostwhite;
+	padding: 50px 60px;
+	border-radius: 6px;
+	display: block;
+	margin-left:38%;
+	margin-top: 120px;
+	text-align:center;
+}
+
+ form h3{
+	font-size: 150%;
+	font-weight:700;
+	padding-bottom: 1rem;
+}
+
+#login form .btn {
+	border:1px solid rgb(80,80,80);
+	border-radius: 10px;
+	background-color: rgb(80,80,80) ;
+	color:white;
+}
+
+/*--About--*/
+
+.carousel-inner img{
+	width:100%;
+	height:100%
+}
+
+.carousel-caption {
+	position:absolute;
+	top:50%;
+	transform:  translateY(-80%);
+	display: table-cell;
+	text-align: left;
+	vertical-align: left;
+	padding-left:20px;
+	padding-top: 30px;
+}
+
+.carousel-caption h1{
+	font-family: 'Quicksand', sans-serif;
+	font-size:500%;
+	font-weight:700;
+	text-shadow: .1rem .1rem .5rem black;
+
+}
+
+ .carousel-caption h3{
+	font-family: 'Quicksand', sans-serif;
+	font-size:200%;
+	font-weight:500;
+	text-shadow:1px 1px 10px #000;
+	padding-bottom: 1rem;
+
+}
+
+
+
+/*---Test---*/
+
+#test{
+	background-color: rgb(119, 136, 153);
+	background-size: cover;
+	display: table;
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+}
+
+#test .question{
+	border:1px solid ghostwhite;
+	background-color: ghostwhite;
+	border-radius: 6px;
+	text-align:center;
+	padding: 50px 60px;
+	display:block;
+	margin-left:20%;
+	margin-right: 20%;
+	margin-top: 120px;
+	margin-bottom: 100px;
+	text-align:center;
+}
+
+.question{
+	
+	padding-top: 20px;
+}
+
+#test .btn{
+	border:1px solid rgb(80,80,80);
+	border-radius: 10px;
+	background-color: rgb(80,80,80) ;
+	color:white;
+	margin-left:42%;
+	margin-bottom: 35px;
+}
+
+/*---RESULTS---*/
+
+.low{
+
+	border:12px solid white;
+	background-color:#6596a1;
+	border-radius: 10px;
+	text-align:center;
+	padding: 50px 60px;
+	display:center;
+	margin-left:20%;
+	margin-right: 20%;
+	margin-top: 120px;
+	margin-bottom: 100px;
+	text-align:center;
+}
+.medium{
+	border:12px solid white;
+	background-color:#f5a94c;
+	border-radius: 10px;
+	text-align:center;
+	padding: 50px 60px;
+	display:center;
+	margin-left:20%;
+	margin-right: 20%;
+	margin-top: 120px;
+	margin-bottom: 100px;
+	text-align:center;
+}
+
+.high{
+	border:12px solid white;
+	background-color:#e83f3c;
+	border-radius: 10px;
+	text-align:center;
+	padding: 50px 60px;
+	display:center;
+	margin-left:20%;
+	margin-right: 20%;
+	margin-top: 120px;
+	margin-bottom: 100px;
+	text-align:center;
+}
+
+.low h1,.high h1,.medium h1{
+	font-size: 500%;
+	font-weight: 700;
+	color: white;
+	text-shadow: .1rem .1rem .5rem black;
+	padding-bottom: 1rem;
+}
+
+.low h3,.high h3,.medium h3{
+	text-shadow: .1rem .1rem .3rem black;
+	padding-bottom: 1.4rem;
+	color: white;
+}
+
+
+/*---Footer---*/
+
+footer{
+	width:100%;
+	background-color: ghostwhite;
+	padding: 2% 3% 3% 3%;
+	position: center;
+	text-align: center;
+}
+
+footer h3{
+	font-size: 150%;
+	font-weight:700;
+}
+
+
+footer a{
+	padding-top:1rem;
+	padding-right: 1rem;
+	color: rgb(80,80,80);
+	font-size: 1.6rem;
+}
