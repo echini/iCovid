@@ -6,10 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class userdao {
-	public static boolean validate(String logname, String logemail) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 	
 	private String dbUrl = "jdbc:mysql://localhost:3306/userdb?serverTimezone=UTC";
 	private String dbUname = "root";
@@ -64,7 +61,29 @@ public class userdao {
 	}
 
 
-
+	public boolean validate(String name,String email)
+	{
+		boolean status=false;
+		
+		loadDriver(dbDriver);
+		Connection con = getConnection();
+		
+		String sql = "SELECT * FROM user WHERE email= ? ";
+		
+		PreparedStatement ps;
+		try {
+		ps = con.prepareStatement(sql);
+		ps.setString(1,user.getEmail());
+		
+		ResultSet rs = ps.executeQuery();
+		status= rs.next();
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return status;
+	}
 
 	
 }
