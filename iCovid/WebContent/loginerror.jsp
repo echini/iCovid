@@ -53,23 +53,8 @@
 	<div class="container-fluid">
 	<div class="row">
 	
-	<form action="loginServlet" method="post">
-		<h3> Login </h3>
-		<div class="form-group">
-			<input type="text" name="name" class="form-control" placeholder="Enter your name here...">
-		</div>
-	
-		<div class="form-group">
-			<input type="email" name="email" class="form-control"  placeholder="Enter your email here...">
-		</div>
-		
-		 <div class="form-group form-check">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
-			<label class="form-check-label" for="exampleCheck1">I agree with the <b>Terms of Use</b></label>
-		 </div>
-		
-		 <button type="submit" class="btn"> <i class="fas fa-sign-in-alt"></i> Submit</button>
-	</form>
+	<p>Your name or email is wrong.</p>
+	<a href="login.jsp"> Please try again </a>
 	</div>
 	</div>
 	</div>

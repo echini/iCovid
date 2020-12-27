@@ -12,7 +12,7 @@
 	
 	 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css"/>
-    <title>login form</title>
+    <title>register form</title>
   </head>
  
   <body>
@@ -48,13 +48,13 @@
 	</div>
 	</nav>
 	
-	<!--log in form-->
-	<div id="login">
+	<!--register form-->
+	<div id="register">
 	<div class="container-fluid">
 	<div class="row">
 	
-	<form action="loginServlet" method="post">
-		<h3> Login </h3>
+	<form action="registerServlet" method="post">
+		<h3> Your registration failed. Please try again </h3>
 		<div class="form-group">
 			<input type="text" name="name" class="form-control" placeholder="Enter your name here...">
 		</div>
@@ -68,7 +68,9 @@
 			<label class="form-check-label" for="exampleCheck1">I agree with the <b>Terms of Use</b></label>
 		 </div>
 		
-		 <button type="submit" class="btn"> <i class="fas fa-sign-in-alt"></i> Submit</button>
+		 <button type="submit" class="btn"> <i class="fas fa-sign-in-alt"></i> Register</button>
+		 <br><br>
+		 <a href="login.jsp">Already have an account?</a>
 	</form>
 	</div>
 	</div>

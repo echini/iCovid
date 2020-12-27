@@ -1,4 +1,4 @@
-package register;
+package login;
 
 import java.io.IOException;
 
@@ -7,7 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
+
+import register.user;
+import register.userdao;
 
 
 public class loginServlet extends HttpServlet {
@@ -31,15 +34,28 @@ public class loginServlet extends HttpServlet {
 		String logname=request.getParameter("name");
 		String logemail=request.getParameter("email");
 		
+		//create user database model
+		userdao userdb=new userdao();
+				
+		//create user model
+		user user=new user(logname,logemail);
 		
-		 if( userdao.validate(logname,logemail)){
+		 if( userdb.validate(user)){
 	        	
-			  RequestDispatcher rd=request.getRequestDispatcher("test.jsp");  
-		        rd.forward(request,response);  
-		    }  
-		    else{   
-		        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
-		        rd.include(request,response);  
-		    }  
-		          
-	}} 
+			    HttpSession session=request.getSession();
+			    session.setAttribute("loguser", user);
+			   /* RequestDispatcher rd=request.getRequestDispatcher("test.jsp");
+				 rd.forward(request, response);*/
+			    response.sendRedirect("test.jsp");
+			    
+
+	        }
+		 else {
+			 
+			 RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+			 rd.forward(request, response);
+		 }
+		
+		
+	}
+}

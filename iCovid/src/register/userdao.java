@@ -3,11 +3,11 @@ package register;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class userdao {
 
-	
 	private String dbUrl = "jdbc:mysql://localhost:3306/userdb?serverTimezone=UTC";
 	private String dbUname = "root";
 	private String dbPassword = "a2a4a5p54473";
@@ -16,7 +16,7 @@ public class userdao {
 
 
 	
-	public void  loadDriver(String dbDriver){
+	public void loadDriver(String dbDriver){
 		try {
 			Class.forName(dbDriver);
 		} catch (ClassNotFoundException e) {
@@ -59,9 +59,8 @@ public class userdao {
 		}
 		return res;
 	}
-
-
-	public boolean validate(String name,String email)
+	
+	public boolean validate(user user)
 	{
 		boolean status=false;
 		
@@ -84,6 +83,5 @@ public class userdao {
 		}
 		return status;
 	}
-
 	
 }
