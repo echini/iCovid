@@ -40,19 +40,17 @@ public class loginServlet extends HttpServlet {
 		//create user model
 		user user=new user(logname,logemail);
 		
+		
 		 if( userdb.validate(user)){
 	        	
 			    HttpSession session=request.getSession();
-			    session.setAttribute("loguser", user);
-			   /* RequestDispatcher rd=request.getRequestDispatcher("test.jsp");
-				 rd.forward(request, response);*/
-			    response.sendRedirect("test.jsp");
-			    
+			    session.setAttribute("loguser",logname);
+			    response.sendRedirect("home.jsp");
 
 	        }
 		 else {
 			 
-			 RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+			 RequestDispatcher rd=request.getRequestDispatcher("loginerror.jsp");
 			 rd.forward(request, response);
 		 }
 		
