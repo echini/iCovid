@@ -56,8 +56,19 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a href="index.jsp" class="nav-link">
 							Home </a></li>
-					<li class="nav-item"><a href="test.jsp"
-						class="nav-link"> Take the test </a></li>
+					<li class="nav-item">
+					
+					<!--  If user is logged in hide the register panel-->
+					<c:if test='${not empty loguser}'>
+							<a href="test.jsp"
+							class="nav-link"> Take the test </a>
+						
+					</c:if>
+					<c:if test='${ empty loguser}'>	
+							<a href="registration.jsp"
+							class="nav-link"> Take the test </a>
+					</c:if>
+						</li>
 					<li class="nav-item"><a href="about.jsp" class="nav-link">
 							About </a></li>
 				</ul>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -43,7 +45,10 @@
 				<a href="index.jsp" class="nav-link"> Home </a>
 				</li>
 				<li class="nav-item">
-				<a href="registration.jsp" class="nav-link"> Take the test </a>
+				
+							<a href="registration.jsp"
+							class="nav-link"> Take the test </a>
+					
 				</li>
 				<li class="nav-item">
 				<a href="about.jsp" class="nav-link"> About </a>

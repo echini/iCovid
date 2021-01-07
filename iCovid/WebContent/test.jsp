@@ -35,14 +35,18 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-				<a href='${pageContext.request.contextPath}' class="nav-link"> Home </a>
-				</li>
-				<li class="nav-item">
-				<a href='${pageContext.request.contextPath}/takeTest' class="nav-link"> Take the test </a>
-				</li>
-				<li class="nav-item">
-				<a href='${pageContext.request.contextPath}/about' class="nav-link"> About </a>
-				</li>
+						<a href="index.jsp" class="nav-link">
+							Home </a></li>
+					<li class="nav-item">
+					
+	
+							<a href="test.jsp"
+							class="nav-link"> Take the test </a>
+						
+					
+						</li>
+					<li class="nav-item"><a href="about.jsp" class="nav-link">
+							About </a></li>
 			</ul>
 		</div>
 	</div>
