@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -46,8 +48,16 @@
 				</li>
 				<li class="nav-item">
 				
+					<!--  If user is logged in hide the register panel-->
+					<c:if test='${not empty loguser}'>
+							<a href="test.jsp"
+							class="nav-link"> Take the test </a>
+						
+					</c:if>
+					<c:if test='${ empty loguser}'>	
 							<a href="registration.jsp"
 							class="nav-link"> Take the test </a>
+					</c:if>
 					
 				</li>
 				<li class="nav-item">
