@@ -1,11 +1,12 @@
 package register;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
 public class registerServlet extends HttpServlet {
@@ -17,8 +18,6 @@ public class registerServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,15 +33,13 @@ public class registerServlet extends HttpServlet {
 		//create user model
 		user user=new user(name,email);
 		
-		
 		if(userdb.insert(user)) {
-			response.sendRedirect("login.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
 		}
 		else {
-			String errorMessage="User available";
-			HttpSession regSession=request.getSession();
-			regSession.setAttribute("RegError", errorMessage);
-			response.sendRedirect("regagain.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("regagain.jsp");
+			dispatcher.forward(request, response);
 		}
 		
 		

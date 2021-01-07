@@ -27,7 +27,7 @@
    <!--navigation bar-->
 	<nav class="navbar navbar-expand-md navbar-fixed-top navbar-light bg-light sticky-top" role="navigation">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+		<a class="navbar-brand" href="index.jsp"><img src="img/logo.png"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 		<span class="navbar-toggler-icon"></span>
 		</button>
@@ -35,7 +35,7 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-				<a href="index.html" class="nav-link"> Home </a>
+				<a href="index.jsp" class="nav-link"> Home </a>
 				</li>
 				<li class="nav-item">
 				<a href="test.jsp" class="nav-link"> Take the test </a>

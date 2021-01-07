@@ -3,8 +3,9 @@
   <display-name>iCovid</display-name>
   
   <welcome-file-list>
-  	<welcome-file>index.html</welcome-file>
+  	<welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+ 
   <servlet>
   	<servlet-name>reg</servlet-name>
   	<servlet-class>register.registerServlet</servlet-class>
@@ -26,12 +27,14 @@
   </servlet-mapping>
   
    <servlet>
-  	<servlet-name>lo</servlet-name>
+  	<servlet-name>logout</servlet-name>
   	<servlet-class>logout.logoutServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>lo</servlet-name>
+  	<servlet-name>logout</servlet-name>
   	<url-pattern>/logoutServlet</url-pattern>
   </servlet-mapping>
+  
+  
 </web-app>
