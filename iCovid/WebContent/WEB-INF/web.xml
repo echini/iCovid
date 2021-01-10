@@ -28,12 +28,22 @@
   
    <servlet>
   	<servlet-name>logout</servlet-name>
-  	<servlet-class>logout.logoutServlet</servlet-class>
+  	<servlet-class>logout.logout</servlet-class>
   </servlet>
   
   <servlet-mapping>
   	<servlet-name>logout</servlet-name>
-  	<url-pattern>/logoutServlet</url-pattern>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+  	<servlet-name>test</servlet-name>
+  	<servlet-class>test.testServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>test</servlet-name>
+  	<url-pattern>/testServlet</url-pattern>
   </servlet-mapping>
   
   

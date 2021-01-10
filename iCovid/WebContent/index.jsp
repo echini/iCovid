@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" %>
+	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 
 <!doctype html>
 <html lang="en">
@@ -56,7 +55,6 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a href="index.jsp" class="nav-link">
 							Home </a></li>
-					<li class="nav-item">
 					
 					<!--  If user is logged in hide the register panel-->
 					<c:if test='${not empty loguser}'>
@@ -68,7 +66,6 @@
 							<a href="registration.jsp"
 							class="nav-link"> Take the test </a>
 					</c:if>
-						</li>
 					<li class="nav-item"><a href="about.jsp" class="nav-link">
 							About </a></li>
 				</ul>
@@ -76,19 +73,9 @@
 		</div>
 	</nav>
 
-
-	<!--  If user is logged in hide the register panel-->
-	<c:if test='${not empty loguser}'>
-		<form action="logoutServlet">
-		
-		
-			<div class="button nameuser"><br>Welcome, ${loguser.name}</div>
-		    <button  class="btn logout"> <br>Logout </button>
-		
-			
-			
-		</form>
+	  
 	
+
 	<!--background-->
 	<div id="home">
 		<div class="landing-text">
@@ -99,39 +86,21 @@
 				Evaluate the risk of having been infected <br>by covid-19 and
 				get advice on what to do<br> to protect yourself and others.
 			</h3>
-			<a href="registration.jsp" class="btn btn-outline-light btn-lg">
-				Get started</a> 
+				<a href="registration.jsp" class="btn btn-outline-light btn-lg">
+					Get started</a> 
 			<a href="about.jsp" class="btn btn-outline-light btn-lg">
 				More info</a>
 		</div>
 	</div>
 
-</c:if>
-
-<!--  If user is not logged in -->
-
-	<c:if test='${empty loguser}'>
+		<c:if test='${not empty sessionScope.loguser}'>
+	<form action="logout" method="get">
+		<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
+		<a href='${pageContext.request.contextPath}/logout' class="button logout">Logout </a>
+	</form>
+	</c:if>
 	
-	
-	<!--background-->
-	<div id="home">
-		<div class="landing-text">
-			<h1>
-				Stay safe.<br> Protect each other.
-			</h1>
-			<h3>
-				Evaluate the risk of having been infected <br>by covid-19 and
-				get advice on what to do<br> to protect yourself and others.
-			</h3>
-			<a href="registration.jsp" class="btn btn-outline-light btn-lg">
-				Get started</a> 
-			<a href="about.jsp" class="btn btn-outline-light btn-lg">
-				More info</a>
-		</div>
-	</div>
 
-</c:if>	
-	
 	<!--footer-->
 	<footer class="container-fluid text center">
 		<h3>Contact us</h3>

@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,30 +35,14 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-						<a href="index.jsp" class="nav-link">
-							Home </a></li>
-					<li class="nav-item">
-					
-					<!--  If user is logged in hide the register panel-->
-					<c:if test='${not empty loguser}'>
-							<a href="test.jsp"
-							class="nav-link"> Take the test </a>
-							
-								<form action="logoutServlet">
-		    						<button  class="btn logout">Logout </button>
-								</form>
-								
-					</c:if>
-					
-					<c:if test='${ empty loguser}'>	
-							<a href="registration.jsp"
-							class="nav-link"> Take the test </a>
-					</c:if>
-						
-					
-						</li>
-					<li class="nav-item"><a href="about.jsp" class="nav-link">
-							About </a></li>
+				<a href='${pageContext.request.contextPath}' class="nav-link"> Home </a>
+				</li>
+				<li class="nav-item">
+				<a href='${pageContext.request.contextPath}/takeTest' class="nav-link"> Take the test </a>
+				</li>
+				<li class="nav-item">
+				<a href='${pageContext.request.contextPath}/about' class="nav-link"> About </a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -70,127 +52,172 @@
 	<!--test form-->
 	<div id="test">
 	<div class="container-fluid">
-	<div class="question">
-	<form>
-		<h3>Question 1</h3>
-		<div class="form-group">
-			<label for="exampleFormControlSelect1">Select your gender</label>
-			<select class="form-control" id="exampleFormControlSelect1">
-			<option>Male</option>
-			<option>Female</option>
-			<option>Other</option>
-			</select>
-		</div>
-	</div>
-		
-	<div class="question">
-		<h3>Question 2</h3>
-		<div class="form-group">
-			<label for="exampleFormControlSelect1">Select your age</label>
-			<select class="form-control" id="exampleFormControlSelect1">
-			<option>18-34</option>
-			<option>35-50</option>
-			<option>51-65</option>
-			<option>66-79</option>
-			<option>80+</option>
-			</select>
-		</div>
-	</div>
-	
+	<form action="testServlet" method="post">
+
 	
 	<div class="question">
-		<h3>Question 3</h3>
-		<div class="form-group">
-			<label for="exampleFormControlSelect1">Select your latest temperature</label>
-			<select class="form-control" id="exampleFormControlSelect1">
-			<option>35.5°C - 37°C</option>
-			<option>37.1°C - 37.9°C</option>
-			<option>38°C - 38.5°C</option>
-			<option>38.6°C +</option>
-			</select>
-		</div>
-	</div>
+	 	<h3>Question 1</h3>
+	 	<div class="form-group">
+	 	<p>Select your gender</p>
+         <table>
+            <tr>
+               <td><input type="checkbox" name="gender" value="male"/>Male</td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name="gender" value="female"/>Female</td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name="gender" value="Other"/>Other</td>
+            </tr>
+         </table>
+         </div>
+      </div>
+		
+	
+	<div class="question">
+	 	<h3>Question 2</h3>
+	 	<div class="form-group">
+	 	<p>Select your age</p>
+         <table>
+            <tr>
+               <td><input type="checkbox" name="age" value="18-34"/>18-34</td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name="age" value="35-50"/>35-50</td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name="age" value="51-65"/>51-65</td>
+            </tr>
+             <tr>
+               <td><input type="checkbox" name="age" value="66-79"/>66-79</td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name="age" value="80+"/>80+</td>
+            </tr>
+         </table>
+         </div>
+      </div>
+	
+	
+		<div class="question">
+	 	<h3>Question 3</h3>
+	 	<div class="form-group">
+	 	<p>Select your latest temperature</p>
+         <table>
+            <tr>
+               <td><input type="checkbox" name="temp" value="35.5°C - 37°C"/>35.5°C - 37°C</td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name="temp" value="37.1°C - 37.9°C"/>37.1°C - 37.9°C</td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name="temp" value="38°C - 38.5°C"/>38°C - 38.5°C</td>
+            </tr>
+             <tr>
+               <td><input type="checkbox" name="temp" value="38.6°C +"/>38.6°C +</td>
+            </tr>
+         </table>
+         </div>
+      </div>
+	
 		
 		
 	<div class="question">
-		<h3>Question 4</h4>
+		<h3>Question 4</h3>
 		<p>Do you have dry cough?</p>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+			<input class="form-check-input" type="checkbox" name="drycough" value="yes">
 			<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			<input class="form-check-input" type="checkbox" name="drycough" value="no">
 			<label class="form-check-label" for="inlineCheckbox2">No</label>
 		</div>
 	</div>
 	
 	
 	<div class="question">
-		<h3>Question 5</h4>
+		<h3>Question 5</h3>
 		<p>Do you have any difficulty in breathing?</p>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+			<input class="form-check-input" type="checkbox" name="breathing" value="yes">
 			<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			<input class="form-check-input" type="checkbox" name="breathing" value="no">
 			<label class="form-check-label" for="inlineCheckbox2">No</label>
 		</div>
 	</div>
 	
 	<div class="question">
-		<h3>Question 6</h4>
+		<h3>Question 6</h3>
 		<p>Are you experiencing any loss of smell or taste?</p>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+			<input class="form-check-input" type="checkbox" name="smelltaste" value="yes">
 			<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			<input class="form-check-input" type="checkbox" name="smelltaste" value="no">
 			<label class="form-check-label" for="inlineCheckbox2">No</label>
 		</div>
 	</div>
 	
 	<div class="question">
-		<h3>Question 7</h4>
+		<h3>Question 7</h3>
 		<p>Are you feeling exhausted?</p>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+			<input class="form-check-input" type="checkbox" name="exhausted" value="yes">
 			<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			<input class="form-check-input" type="checkbox" name="exhausted" value="no">
 			<label class="form-check-label" for="inlineCheckbox2">No</label>
 		</div>
 	</div>
 	
 	<div class="question">
-		<h3>Question 8</h4>
+		<h3>Question 8</h3>
 		<p>Are you experiencing any of the following symptoms?</p>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+			<input class="form-check-input" type="checkbox" name="question8" value="sorethroat">
 			<label class="form-check-label" for="inlineCheckbox1">Sore throat</label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			<input class="form-check-input" type="checkbox" name="question8" value="headache">
 			<label class="form-check-label" for="inlineCheckbox2">Headache</label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-			<label class="form-check-label" for="inlineCheckbox2">Runny nose</label>
+			<input class="form-check-input" type="checkbox" name="question8" value="diarrhea">
+			<label class="form-check-label" for="inlineCheckbox2">Diarrhea</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" name="question8" value="none">
+			<label class="form-check-label" for="inlineCheckbox2">None</label>
 		</div>
 	</div>
 	
 	<div class="question">
-		<h3>Question 9</h4>
+		<h3>Question 9</h3>
 		<p>Have you recently been in contact with a confirmed case of covid-19?</p>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+			<input class="form-check-input" type="checkbox" name="confirmedcase" value="yes">
 			<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			<input class="form-check-input" type="checkbox" name="confirmedcase" value="no">
+			<label class="form-check-label" for="inlineCheckbox2">No</label>
+		</div>
+	</div>
+	
+	<div class="question">
+		<h3>Question 10</h3>
+		<p>Do you belong to vulnerable groups?</p>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" name="vulnerability" value="yes">
+			<label class="form-check-label" for="inlineCheckbox1">Yes</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" name="vulnerability" value="no">
 			<label class="form-check-label" for="inlineCheckbox2">No</label>
 		</div>
 	</div>

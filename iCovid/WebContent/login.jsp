@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" %>
+    pageEncoding="ISO-8859-1"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,18 +61,7 @@
 	</nav>
 	
 	
-	<!--  If user is logged in hide the register panel-->
-	<c:if test='${not empty loguser}'>
-		<form action="logoutServlet">
-		
-			<div class="button nameuser">Logged as, ${loguser.name}</div>
-		    <h1 style="float: right;">You're already logged in, ${loguser.name} !</h1>
-			<button class="button logout">Logout </button>
-			
-			
-		</form>
-	</c:if>
-	
+
 	
 	<c:if test='${empty loguser}'>
 	
@@ -101,8 +89,19 @@
 	</div>
 	</div>
 	</div>
-	
 	</c:if>
+	
+		
+	<!--  If user is logged in hide the register panel-->
+	<c:if test='${not empty loguser}'>
+
+			<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
+		
+		<a href='${pageContext.request.contextPath}/logout' class="button logout">Logout </a>
+			<h1 style="float: right;">You're already logged in, ${sessionScope.loguser.name} !</h1>
+
+	</c:if>
+	
 	
 	
 	<!--footer-->	
