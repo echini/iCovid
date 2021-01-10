@@ -8,6 +8,13 @@
 <head>
 
 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -75,33 +82,31 @@
 		</div>
 	</nav>
 
-	  
-	
 
-	<!--background-->
-	<div id="home">
-		<div class="landing-text">
-			<h1>
-				Stay safe.<br> Protect each other.
-			</h1>
-			<h3>
-				Evaluate the risk of having been infected <br>by covid-19 and
-				get advice on what to do<br> to protect yourself and others.
-			</h3>
-				<a href="registration.jsp" class="btn btn-outline-light btn-lg">
-					Get started</a> 
-			<a href="about.jsp" class="btn btn-outline-light btn-lg">
-				More info</a>
-		</div>
-	</div>
 
-		<c:if test='${not empty loguser}'>
-	<form action="logout" method="get">
-		<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
-		<a href='${pageContext.request.contextPath}/logout' class="button logout">Logout </a>
-	</form>
-	</c:if>
-	
+
+<h1>Risk Map</h1>
+<div id="map"></div>
+
+<script>
+	function initMap(){
+		var options={
+				zoom:8,
+				center:{lat:37.983810, lng:23.727539}
+		}
+		
+		var map = new google.maps.Map(document.getElementById('map'),options)
+	}
+</script>
+
+<script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc&callback=initMap">
+</script>
+
+
+
+
+
 
 	<!--footer-->
 	<footer class="container-fluid text center">
