@@ -91,6 +91,8 @@
 
 
 <script>
+
+//Display the map
 	function initMap(){
 		var options={
 				zoom:8,
@@ -99,7 +101,9 @@
 		
 		var map = new google.maps.Map(document.getElementById('map'),options)
 	}
-		function addMarker(coords){
+	
+	
+	<!--	function addMarker(coords){
 			var marker =new google.maps.Marker
 			({
 				position:coords ,
@@ -107,9 +111,37 @@
 			});
 		}
 		
-		addMarker({lat: parseFloat(${coords.lat}), lng: parseFloat(${coords.lng})});
+		addMarker({lat: parseFloat(${coords.lat}), lng: parseFloat(${coords.lng})});-->
 	
+		
+		<!--
+		
+		var markers=[coords];
+		for(var i=0;i<markers.length; i++){
+			addMarker(markers[i]);
+		}
+		
+		-->
+		
+		//multiple markers name,lat,lng
+		
+		var markers=[];
+		
+		
+		//Place each marker on the map
 	
+		for( i=0; i<markers.length; i++){
+			var position = new google.maps.LatLong(markers[i][1],markers[i][2]);
+			bounds.exted(position);
+			marker = new google.maps.Marker({
+				position: position,
+				map: map,
+				title: markers[i][0]
+			});
+			
+			//center the map to fit all markers on the screen
+			mapfitBounds(bounds);
+		}
 </script>
 
 <script defer
