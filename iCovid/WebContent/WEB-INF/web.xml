@@ -46,6 +46,14 @@
   	<url-pattern>/testServlet</url-pattern>
   </servlet-mapping>
   
-
+     <servlet>
+  	<servlet-name>map</servlet-name>
+  	<servlet-class>map.mapServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>map</servlet-name>
+  	<url-pattern>/mapServlet</url-pattern>
+  </servlet-mapping>
   
 </web-app>

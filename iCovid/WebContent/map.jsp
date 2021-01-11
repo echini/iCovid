@@ -85,18 +85,31 @@
 
 
 
-<h1>Risk Map</h1>
+<h1 class="landing-text">Risk Map</h1>
 <div id="map"></div>
+
+
 
 <script>
 	function initMap(){
 		var options={
 				zoom:8,
-				center:{lat:37.983810, lng:23.727539}
+				center:{lat:32, lng:32}
 		}
 		
 		var map = new google.maps.Map(document.getElementById('map'),options)
 	}
+		function addMarker(coords){
+			var marker =new google.maps.Marker
+			({
+				position:coords ,
+				map:map
+			});
+		}
+		
+		addMarker({lat: parseFloat(${coords.lat}), lng: parseFloat(${coords.lng})});
+	
+	
 </script>
 
 <script defer

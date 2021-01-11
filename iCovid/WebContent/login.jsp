@@ -8,6 +8,7 @@
 
 
   <head>
+   <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <!-- Required meta tags -->
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -103,12 +104,13 @@
 		<br>
 		<br>
 		<br>
+		
 	<!--  If user is logged in hide the register panel-->
 	<c:if test='${not empty loguser}'>
 
 			<div class="button nameuser">Logged as, ${loguser.name}</div>
 		
-		<a href="logoutServler" class="button logout">Logout </a>
+		<a href="logoutServlet" class="button logout">Logout </a>
 			<h1 style="float: right;">You're already logged in, ${sessionScope.loguser.name} !</h1>
 
 	</c:if>

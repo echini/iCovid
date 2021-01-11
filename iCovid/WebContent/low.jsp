@@ -71,7 +71,7 @@
 			<h3>Based on your symptoms and your exposure to the virus history, the risk that you are infected from  COVID-19 is LOW. There is na reason to panic.<br><br>For everyone's safety and health follow the instructions provided for the general population.</h3>
 			<a href="#" class="btn btn-outline-light btn-lg"> Instructions </a>
 			<a href="test.jsp" class="btn btn-outline-light btn-lg"> Retake </a>
-			<a href="map.jsp" class="btn btn-outline-light btn-lg"> Map </a>
+			<a href="mapServlet" class="btn btn-outline-light btn-lg"> Map </a>
 		</div>
 	</div>
 	
