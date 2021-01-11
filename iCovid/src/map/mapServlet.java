@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import register.user;
+
 import register.userdao;
 
 
@@ -19,19 +19,13 @@ public class mapServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//fetch data from login form
-		String logname=request.getParameter("name");
-		String logemail=request.getParameter("email");
-		
-		//fetch users coordinates
-		String lat=request.getParameter("lat");
-		String lng=request.getParameter("lng");
+
 		
 		//create user database model
 		userdao userdb=new userdao();
-		user user=new user(logname,logemail,lat,lng);
+
 		
-		request.setAttribute("coords",userdb.getCoords(user));
+		request.setAttribute("coords",userdb.getCoords());
 		RequestDispatcher rd=request.getRequestDispatcher("map.jsp");
 		rd.forward(request, response);	
 		

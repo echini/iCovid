@@ -89,7 +89,7 @@ public class userdao {
 		return status;
 	}
 	
-	public ArrayList<String> getCoords(user user)
+	public ArrayList<String> getCoords()
 	{
 		ArrayList<String> coords =new ArrayList<String>();
 		loadDriver(dbDriver);
