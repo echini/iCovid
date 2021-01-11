@@ -13,6 +13,7 @@ import register.user;
 import register.userdao;
 
 
+
 public class loginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,11 +29,17 @@ public class loginServlet extends HttpServlet {
 		String logname=request.getParameter("name");
 		String logemail=request.getParameter("email");
 		
+		//fetch users coordinates
+		String lat=request.getParameter("lat");
+		String lng=request.getParameter("lng");
+				
+
+				
 		//create user database model
 		userdao userdb=new userdao();
 				
 		//create user model
-		user user=new user(logname,logemail);
+		user user=new user(logname,logemail,lat,lng);
 		
 		
 		 if( userdb.validate(user)){
@@ -41,7 +48,6 @@ public class loginServlet extends HttpServlet {
 			 session.setAttribute("loguser", user);
 			 RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 			 rd.forward(request, response);
-			    /*response.sendRedirect("index.jsp");*/
 			    
 
 	        }

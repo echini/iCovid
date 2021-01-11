@@ -70,6 +70,7 @@
 					</c:if>
 					<li class="nav-item"><a href="about.jsp" class="nav-link">
 							About </a></li>
+
 				</ul>
 			</div>
 		</div>
@@ -96,9 +97,9 @@
 	</div>
 
 		<c:if test='${not empty loguser}'>
-	<form action="logout" method="get">
-		<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
-		<a href='${pageContext.request.contextPath}/logout' class="button logout">Logout </a>
+	<form action="logoutServlet" >
+		<div class="button nameuser">Logged as, ${loguser.name}</div>
+		<a href="logoutServlet" class="button logout">Logout </a>
 	</form>
 	</c:if>
 	

@@ -15,11 +15,15 @@
 	 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css"/>
     <title>register form</title>
+    
+   
+   
   </head>
  
   <body>
 
     <!-- Optional JavaScript; choose one of the two! -->
+     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc" type="text/javascript"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -67,13 +71,27 @@
 	</nav>
 	
 	
+	 <script>
+		if(window.navigator.geolocation){
+			x=window.navigator.geolocation.getCurrentPosition(success, failure);
+			
+			function success(position){
+				document.getElementById('lat').value=position.coords.latitude;
+				document.getElementById('lng').value=position.coords.longitude;
+		
+			}
+			function failure(){}
+		}
+    </script>
+	
+	
 	
 	<!--  If user is logged in hide the register panel-->
 	<c:if test='${not empty loguser}'>
 
 			<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
 		
-		<a href='${pageContext.request.contextPath}/logout' class="nav-link"> Logout</a>
+		<a href="logoutServlet" class="nav-link"> Logout</a>
 		
 			<h1 style="float: center;">You're already registered, ${sessionScope.loguser.name} !</h1>
 
@@ -102,6 +120,10 @@
 			<input type="checkbox" class="form-check-input" id="exampleCheck1">
 			<label class="form-check-label" for="exampleCheck1">I agree with the <b>Terms of Use</b></label>
 		 </div>
+		 
+		 	<input type="hidden" name="lat" id="lat" value="">
+		 	<input type="hidden" name="lng" id="lng" value="">
+		 
 		
 		 <button type="submit" class="btn"> <i class="fas fa-sign-in-alt"></i> Register</button>
 		 <br><br>

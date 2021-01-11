@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+
 
 public class userdao {
 
@@ -44,13 +47,15 @@ public class userdao {
 		boolean res=false;
 		loadDriver(dbDriver);
 		Connection con = getConnection();
-		String sql = "INSERT INTO user values(?,?)";
+		String sql = "INSERT INTO user values(?,?,?,?)";
 		
 		PreparedStatement ps;
 		try {
 		ps = con.prepareStatement(sql);
 		ps.setString(1, user.getName());
 		ps.setString(2, user.getEmail());
+		ps.setString(3, user.getLat());
+		ps.setString(4, user.getLng());
 		ps.executeUpdate();
 		res=true;
 		} catch (SQLException e) {
@@ -84,4 +89,28 @@ public class userdao {
 		return status;
 	}
 	
+	public ArrayList<String> getCoords(user user)
+	{
+		ArrayList<String> coords =new ArrayList<String>();
+		loadDriver(dbDriver);
+		Connection con = getConnection();
+		
+		String sql = "SELECT lat,lng FROM user";
+		
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				coords.add(rs.getString("lat"));
+				coords.add(rs.getString("lng"));
+				
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+	}
+	return coords;
+	}
 }

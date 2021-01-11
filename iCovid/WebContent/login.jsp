@@ -5,6 +5,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
+
   <head>
     <!-- Required meta tags -->
     <meta charset="ISO-8859-1">
@@ -15,12 +17,15 @@
 	
 	 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css"/>
+	
+	
     <title>login form</title>
   </head>
  
   <body>
-
+	
     <!-- Optional JavaScript; choose one of the two! -->
+     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc" type="text/javascript"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -61,9 +66,7 @@
 	</nav>
 	
 	
-
-	
-	<c:if test='${empty loguser}'>
+	<c:if test='${empty sessionScope}'>
 	
 	<div id="login">
 	<div class="container-fluid">
@@ -83,21 +86,29 @@
 			<input type="checkbox" class="form-check-input" id="exampleCheck1">
 			<label class="form-check-label" for="exampleCheck1">I agree with the <b>Terms of Use</b></label>
 		 </div>
-		
+		 
 		 <button type="submit" class="btn"> <i class="fas fa-sign-in-alt"></i> Submit</button>
+		 
 	</form>
+	
+	
+	
 	</div>
 	</div>
 	</div>
 	</c:if>
 	
-		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	<!--  If user is logged in hide the register panel-->
 	<c:if test='${not empty loguser}'>
 
-			<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
+			<div class="button nameuser">Logged as, ${loguser.name}</div>
 		
-		<a href='${pageContext.request.contextPath}/logout' class="button logout">Logout </a>
+		<a href="logoutServler" class="button logout">Logout </a>
 			<h1 style="float: right;">You're already logged in, ${sessionScope.loguser.name} !</h1>
 
 	</c:if>
