@@ -2,6 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.ArrayList" %>
+
+<%ArrayList coords=(ArrayList)request.getAttribute("coords"); %>
 
 <!doctype html>
 <html lang="en">
@@ -91,7 +94,6 @@
 
 
 <script>
-
 //Display the map
 	function initMap(){
 		var options={
@@ -99,7 +101,7 @@
 				center:{lat:32, lng:32}
 		}
 		
-		var map = new google.maps.Map(document.getElementById('map'),options)
+		var map = new google.maps.Map(document.getElementById('map'),options);
 	}
 	
 	
@@ -125,18 +127,17 @@
 		
 		//multiple markers name,lat,lng
 		
-		var markers=[];
-		
+        <!--markers(string name,lat,lng) = coord-->
 		
 		//Place each marker on the map
 	
-		for( i=0; i<markers.length; i++){
+		for(int i=0; i<markers.length; i++){
 			var position = new google.maps.LatLong(markers[i][1],markers[i][2]);
 			bounds.exted(position);
 			marker = new google.maps.Marker({
 				position: position,
 				map: map,
-				title: markers[i][0]
+				title: [i][0]
 			});
 			
 			//center the map to fit all markers on the screen
