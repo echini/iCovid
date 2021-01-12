@@ -8,7 +8,6 @@
 
 
   <head>
-   <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <!-- Required meta tags -->
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,7 +25,7 @@
   <body>
 	
     <!-- Optional JavaScript; choose one of the two! -->
-     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc" type="text/javascript"></script>
+     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBhOLkFOsO14LjW4PVUVCja9PnvutCyuIc" type="text/javascript"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -104,13 +103,12 @@
 		<br>
 		<br>
 		<br>
-		
 	<!--  If user is logged in hide the register panel-->
-	<c:if test='${not empty loguser}'>
+	<c:if test='${not empty sessionScope}'>
 
-			<div class="button nameuser">Logged as, ${loguser.name}</div>
+			<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
 		
-		<a href="logoutServlet" class="button logout">Logout </a>
+		<a href='${pageContext.request.contextPath}/logoutServlet' class="button logout">Logout </a>
 			<h1 style="float: right;">You're already logged in, ${sessionScope.loguser.name} !</h1>
 
 	</c:if>

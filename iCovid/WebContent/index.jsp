@@ -6,8 +6,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-
-
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -70,7 +68,6 @@
 					</c:if>
 					<li class="nav-item"><a href="about.jsp" class="nav-link">
 							About </a></li>
-
 				</ul>
 			</div>
 		</div>
@@ -96,11 +93,17 @@
 		</div>
 	</div>
 
-		<c:if test='${not empty loguser}'>
-	<form action="logoutServlet" >
-		<div class="button nameuser">Logged as, ${loguser.name}</div>
-		<a href="logoutServlet" class="button logout">Logout </a>
+	<c:if test='${not empty sessionScope.loguser}'>
+	
+	<form action="logoutServlet" method="get">
+		<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
+		<a href='${pageContext.request.contextPath}/logoutServlet' class="button logout">Logout </a>
 	</form>
+	
+	<form action="mapServlet" method="get">
+		<a href='${pageContext.request.contextPath}/mapServlet' class="button map">Show me the map</a>
+	</form>
+	
 	</c:if>
 	
 

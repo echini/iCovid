@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="java.util.ArrayList" %>
 
-<%ArrayList coords=(ArrayList)request.getAttribute("coords"); %>
-
+<%@page import="java.util.ArrayList"%>
+<%
+ArrayList<String> markers=new ArrayList<String>();
+session.setAttribute("coords", markers);
+%>
 <!doctype html>
+
 <html lang="en">
+
 <head>
 
 
@@ -16,14 +19,13 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
-    
 
-<!-- Required meta tags -->
+
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
+
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
@@ -34,13 +36,26 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 <title>iCovid</title>
+
+	<script >
+
+
+    var markers= [
+    <c:forEach var="marker" items="${markers}">
+    {
+    "latLng": [<c:out value="${marker.lat}" />, 
+               <c:out value="${marker.lng}" />]},
+</c:forEach>   ];
+
+</script>
+
+
+
 </head>
 
 <body>
 
-	<!-- Optional JavaScript; choose one of the two! -->
 
-	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
@@ -52,7 +67,7 @@
 		crossorigin="anonymous"></script>
 
 
-	<!--navigation bar-->
+	
 	<nav
 		class="navbar navbar-expand-md navbar-fixed-top navbar-light bg-light sticky-top"
 		role="navigation">
@@ -68,7 +83,6 @@
 					<li class="nav-item"><a href="index.jsp" class="nav-link">
 							Home </a></li>
 					
-					<!--  If user is logged in hide the register panel-->
 					<c:if test='${not empty loguser}'>
 							<a href="test.jsp"
 							class="nav-link"> Take the test </a>
@@ -92,69 +106,38 @@
 <div id="map"></div>
 
 
-
-<script>
+        
+        
+ <script>
 //Display the map
+
 	function initMap(){
 		var options={
 				zoom:8,
-				center:{lat:32, lng:32}
+				center:{lat:32, lng:32},
 		}
-		
+
 		var map = new google.maps.Map(document.getElementById('map'),options);
-	}
-	
-	
-	<!--	function addMarker(coords){
-			var marker =new google.maps.Marker
-			({
-				position:coords ,
-				map:map
-			});
-		}
 		
-		addMarker({lat: parseFloat(${coords.lat}), lng: parseFloat(${coords.lng})});-->
-	
 		
-		<!--
-		
-		var markers=[coords];
-		for(var i=0;i<markers.length; i++){
-			addMarker(markers[i]);
-		}
-		
-		-->
-		
-		//multiple markers name,lat,lng
-		
-        <!--markers(string name,lat,lng) = coord-->
-		
-		//Place each marker on the map
-	
-		for(int i=0; i<markers.length; i++){
-			var position = new google.maps.LatLong(markers[i][1],markers[i][2]);
-			bounds.exted(position);
-			marker = new google.maps.Marker({
-				position: position,
-				map: map,
-				title: [i][0]
+		//add markers on the map
+		for(i=0;i<markers.length;i++){
+			var position= new google.maps.LatLng(markers[i].latLng[0],markers[i].latLng[1]);
+			
+			marker= new google.maps.Marker({
+				position:position,
+				map:map,
 			});
 			
-			//center the map to fit all markers on the screen
-			mapfitBounds(bounds);
 		}
-</script>
+		
+}
+    
+    </script>
+	
+		
 
-<script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc&callback=initMap">
-</script>
-
-
-
-
-
-
-	<!--footer-->
+	
 	<footer class="container-fluid text center">
 		<h3>Contact us</h3>
 		<a href="#" class="fas fa-phone-alt"></a> <a href="#"

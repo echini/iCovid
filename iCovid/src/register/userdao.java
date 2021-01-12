@@ -89,13 +89,13 @@ public class userdao {
 		return status;
 	}
 	
-	public ArrayList<String> getCoords()
+	public  ArrayList<String> getCoords()
 	{
 		ArrayList<String> coords =new ArrayList<String>();
 		loadDriver(dbDriver);
 		Connection con = getConnection();
 		
-		String sql = "SELECT name,lat,lng FROM user";
+		String sql = "SELECT lat,lng FROM user";
 		
 		PreparedStatement ps;
 		try {
@@ -103,11 +103,12 @@ public class userdao {
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				coords.add(rs.getString("name"));
 				coords.add(rs.getString("lat"));
 				coords.add(rs.getString("lng"));
 				
 			}
+			 System.out.println(coords);
+			 
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

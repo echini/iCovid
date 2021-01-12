@@ -5,10 +5,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  
-   <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
-   
-   
     <!-- Required meta tags -->
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,7 +12,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	
-	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+	 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css"/>
     <title>register form</title>
     
@@ -25,9 +21,9 @@
   </head>
  
   <body>
-    
+
     <!-- Optional JavaScript; choose one of the two! -->
-     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc" type="text/javascript"></script>
+     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBhOLkFOsO14LjW4PVUVCja9PnvutCyuIc" type="text/javascript"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -95,7 +91,7 @@
 
 			<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
 		
-		<a href="logoutServlet" class="nav-link"> Logout</a>
+		<a href='${pageContext.request.contextPath}/logout' class="nav-link"> Logout</a>
 		
 			<h1 style="float: center;">You're already registered, ${sessionScope.loguser.name} !</h1>
 
