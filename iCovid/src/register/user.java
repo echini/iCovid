@@ -4,14 +4,14 @@ package register;
 public class user {
 	String name;
 	String email;
-	String lat;
-	String lng;
+	float lat;
+	float lng;
 	
 	public user() {
 		
 	}
 		
-	public user(String name, String email,String lat,String lng) {
+	public user(String name, String email,float lat,float lng) {
 		this.name=name;
 		this.email=email;
 		this.lat=lat;
@@ -35,19 +35,19 @@ public class user {
 			this.email=email;
 		}
 		
-		public String getLat() {
+		public float getLat() {
 			return lat;
 		}
 		
-		public void setLat(String lat) {
+		public void setLat(float lat) {
 			this.lat=lat;
 		}
 		
-		public String getLng() {
+		public float getLng() {
 			return lng;
 		}
 		
-		public void setLng(String lng) {
+		public void setLng(float lng) {
 			this.lng=lng;
 		}
 }

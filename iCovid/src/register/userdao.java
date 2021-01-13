@@ -54,8 +54,8 @@ public class userdao {
 		ps = con.prepareStatement(sql);
 		ps.setString(1, user.getName());
 		ps.setString(2, user.getEmail());
-		ps.setString(3, user.getLat());
-		ps.setString(4, user.getLng());
+		ps.setFloat(3, user.getLat());
+		ps.setFloat(4, user.getLng());
 		ps.executeUpdate();
 		res=true;
 		} catch (SQLException e) {
@@ -89,9 +89,9 @@ public class userdao {
 		return status;
 	}
 	
-	public  ArrayList<String> getCoords()
+	public  ArrayList<Float> getCoords()
 	{
-		ArrayList<String> coords =new ArrayList<String>();
+		ArrayList<Float> coords =new ArrayList<Float>();
 		loadDriver(dbDriver);
 		Connection con = getConnection();
 		
@@ -103,11 +103,11 @@ public class userdao {
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				coords.add(rs.getString("lat"));
-				coords.add(rs.getString("lng"));
+				coords.add(rs.getFloat("lat"));
+				coords.add(rs.getFloat("lng"));
 				
 			}
-			 System.out.println(coords);
+			System.out.println(coords);
 			 
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block

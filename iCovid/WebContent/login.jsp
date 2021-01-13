@@ -25,7 +25,7 @@
   <body>
 	
     <!-- Optional JavaScript; choose one of the two! -->
-     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBhOLkFOsO14LjW4PVUVCja9PnvutCyuIc" type="text/javascript"></script>
+     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc" type="text/javascript"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -66,6 +66,20 @@
 	</nav>
 	
 	
+		 <script>
+		if(window.navigator.geolocation){
+			x=window.navigator.geolocation.getCurrentPosition(success, failure);
+			
+			function success(position){
+				document.getElementById('lat').value=position.coords.latitude;
+				document.getElementById('lng').value=position.coords.longitude;
+		
+			}
+			function failure(){}
+		}
+    </script>
+    
+    
 	<c:if test='${empty sessionScope}'>
 	
 	<div id="login">
@@ -81,6 +95,8 @@
 		<div class="form-group">
 			<input type="email" name="email" class="form-control"  placeholder="Enter your email here...">
 		</div>
+			<input type="hidden" name="lat" id="lat" value="">
+		 	<input type="hidden" name="lng" id="lng" value="">
 		
 		 <div class="form-group form-check">
 			<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -104,7 +120,9 @@
 		<br>
 		<br>
 	<!--  If user is logged in hide the register panel-->
+	
 	<c:if test='${not empty sessionScope}'>
+
 
 			<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
 		

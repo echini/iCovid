@@ -25,14 +25,16 @@ public class mapServlet extends HttpServlet {
 		
 		session.setAttribute("coords", userdb.getCoords());
 		//request.setAttribute("coords",userdb.getCoords());
-		ArrayList<String> list= new ArrayList<String>();
-		list= (ArrayList<String>) userdb.getCoords();
+		ArrayList<Float> list= new ArrayList<Float>();
+		list= (ArrayList<Float>) userdb.getCoords();
 		request.setAttribute("coords",list);
-			System.out.println(list);
+	    System.out.println(list);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("map.jsp");
 		rd.forward(request, response);	
 	}
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	
