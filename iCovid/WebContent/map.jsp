@@ -37,34 +37,30 @@
 <title>iCovid</title>
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+
 <script type="text/javascript">
 	
  <%
- ArrayList<Float> list= new ArrayList<Float>();
+    ArrayList<Float> list= new ArrayList<Float>();
 	list= (ArrayList<Float>)request.getAttribute("coords");
+
+	//2d array
+	 float[][] arr = new float[list.size()][2];
 	
  %>
  
- float[][2] arr = new float[list.size()][2];
- for (int i = 0; i<list.size()/2 ; i++){
-	 for(int j=0;j<list.size()){
+//populating the 2d array with each user's coords
+ for (i = 0; i<list.size()/2 ; i++){
+	 for(j=0;j<list.size();){
 		 
 		 arr[i][0]=list.get(j);
 		 arr[i][1]=list.get(++j);
 	 
+     }
  }
- }
-
 	 
- 
- 
-	//	var coords=[
-	//		[40.788, 22.067],
-	//		[ 40.66, 22.45],
-	//		[ 40.7, 22.3],
-	//		[ 40.66666, 22.4677],
-	//		[ 40.6258365, 22.072613699999998]	
-	//	];
+
 		
 	function initMap(){
 		var options={
@@ -76,12 +72,15 @@
 				 
 		addMarkers(map,arr);
 	}
-				
+	
+	
 	function addMarkers(map,locations){
 			
 		for(var i = 0; i < locations.length; i++ ) {
 			const coord=locations[i];
+			
 			var position = new google.maps.LatLng(coord[0],coord[1]);
+			
 			var marker = new google.maps.Marker({
 			   position: position,
 			    map: map
