@@ -30,11 +30,13 @@ public class loginServlet extends HttpServlet {
 		String logemail=request.getParameter("email");
 		
 		//fetch users coordinates
-	
+
 	    Float lat = Float.parseFloat(request.getParameter("lat"));
 		
 	    Float lng = Float.parseFloat(request.getParameter("lng"));
-		
+	    
+	   
+		 
 				
 		//create user database model
 		userdao userdb=new userdao();
