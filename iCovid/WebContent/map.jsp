@@ -36,31 +36,38 @@
 <link rel="stylesheet" href="style.css" />
 <title>iCovid</title>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 
 <script type="text/javascript">
 	
- <%
-    ArrayList<Float> list= new ArrayList<Float>();
-	list= (ArrayList<Float>)request.getAttribute("coords");
-
-	//2d array
-	 float[][] arr = new float[list.size()][2];
-	
- %>
+<% ArrayList<Float> list= new ArrayList<Float>();%>
+<%list= (ArrayList<Float>)request.getAttribute("coords");%>
+     //2d array
+<%float[][] arr = new float[list.size()/2][2]; %>
  
-//populating the 2d array with each user's coords
- for (i = 0; i<list.size()/2 ; i++){
-	 for(j=0;j<list.size();){
-		 
-		 arr[i][0]=list.get(j);
-		 arr[i][1]=list.get(++j);
-	 
-     }
- }
-	 
 
+ 
+ var arr = [[]];
+
+
+
+//populating the 2d array with each user's coords
+ <% for (int i=0; i<list.size()/2; i++) { %>
+ 	<% for (int j=0 ; j<list.size(); j++) { %>
+		 arr[<%= i %>][0] = <%= list.get(j) %>;
+		 arr[<%= i %>][1] = <%= list.get(++j) %>;
+	 <% } %>
+ <% } %>
+
+	 
+ for (var i in arr) 
+ {
+    console.log("row " + i);
+    for (var j in arr[i]) 
+      {
+       console.log(" " + arr[i][j]);
+      }
+ }
 		
 	function initMap(){
 		var options={
