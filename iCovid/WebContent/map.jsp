@@ -47,14 +47,16 @@
  
 
  
- var arr = [[]];
+ var arr = [];
 
 
 
 //populating the 2d array with each user's coords
 
 <% for (int reg=0; reg<list.size(); reg++) { %>
+
  	<% for (int i=0; i<list.size()/2; i++) { %>
+ 	arr.push([]);
  		<% for (int j=0 ; j<2; j++) { %>
 		 	arr[<%= i %>][<%=j%>] = <%= list.get(reg++) %>;
 	 <% } %>
@@ -84,15 +86,18 @@
 	
 function addMarkers(map,locations){
 		
-	for(var i = 0; i < locations.length; i++ ) {
+	for(var i = 0; i < arr.length; i++ ) {
+		
 		const coord=arr[i];
 		var position = new google.maps.LatLng(coord[0],coord[1]);
 		var marker = new google.maps.Marker({
 		   position: position,
 		    map: map
 		 });
+		}
+		
 	}
-}
+
 						
 </script>
 
