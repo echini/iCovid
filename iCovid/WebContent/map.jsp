@@ -52,13 +52,14 @@
 
 
 //populating the 2d array with each user's coords
- <% for (int i=0; i<list.size()/2; i++) { %>
- 	<% for (int j=0 ; j<list.size(); j++) { %>
-		 arr[<%= i %>][0] = <%= list.get(j) %>;
-		 arr[<%= i %>][1] = <%= list.get(++j) %>;
-	 <% } %>
- <% } %>
 
+<% for (int reg=0; reg<list.size(); reg++) { %>
+ 	<% for (int i=0; i<list.size()/2; i++) { %>
+ 		<% for (int j=0 ; j<2; j++) { %>
+		 	arr[<%= i %>][<%=j%>] = <%= list.get(reg++) %>;
+	 <% } %>
+   <% } %>
+ <% } %>
 	 
  for (var i in arr) 
  {
@@ -75,26 +76,24 @@
 			center:new google.maps.LatLng(40.6,22.07)
 		}
 		var map = new google.maps.Map(document.getElementById("map"),options);
-				
-				 
-		addMarkers(map,arr);
+					    
+	
+	addMarkers(map,arr);
+}
+	
+	
+function addMarkers(map,locations){
+		
+	for(var i = 0; i < locations.length; i++ ) {
+		const coord=arr[i];
+		var position = new google.maps.LatLng(coord[0],coord[1]);
+		var marker = new google.maps.Marker({
+		   position: position,
+		    map: map
+		 });
 	}
-	
-	
-	function addMarkers(map,locations){
-			
-		for(var i = 0; i < locations.length; i++ ) {
-			const coord=locations[i];
-			
-			var position = new google.maps.LatLng(coord[0],coord[1]);
-			
-			var marker = new google.maps.Marker({
-			   position: position,
-			    map: map
-			 });
-		} 	    
-	
-	}					
+}
+						
 </script>
 
 </head>
