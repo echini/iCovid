@@ -71,7 +71,7 @@
 			<h3>Based on your symptoms and your exposure to the virus history, the risk that you are infected from  COVID-19 is HIGH. There is na reason to panic, although it is important to contact a professional doctor or NPHO.<br><br>According to your answers, you belong to a vulnerable group , a high-risk group of people. For everyone's safety and health follow the instructions provided especially for the vulnerable groups.</h3>
 			<a href="https://eody.gov.gr/neos-koronaios-covid-19/" class="btn btn-outline-light btn-lg"> Instructions </a>
 			<a href="test.jsp" class="btn btn-outline-light btn-lg"> Retake </a>
-			<a href="mapSevlet" class="btn btn-outline-light btn-lg"> Map </a>
+			<a href="mapServlet" class="btn btn-outline-light btn-lg"> Map </a>
 			
 		</div>
 	</div>

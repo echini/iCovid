@@ -89,7 +89,7 @@ function initMap(){
 	
 	
 	
-function addMarkers(map,locations,res){
+function addMarkers(map,locations){
 		
 	for(var i = 0; i < arr.length; i++ ) {
 		
@@ -103,7 +103,7 @@ function addMarkers(map,locations,res){
 		var marker = new google.maps.Marker({
 		   position: position,
 		   map: map,
-		   //icon:iconBase + 'orange-blank.png',
+		   icon:'http://maps.google.com/mapfiles/kml/paddle/grn-circle.png',
 			
 		 });
 		}
@@ -113,7 +113,7 @@ function addMarkers(map,locations,res){
 			var marker = new google.maps.Marker({
 			   position: position,
 			   map: map,
-			   //iconBase + 'parking_lot_maps.png'
+			   icon:'http://maps.google.com/mapfiles/kml/paddle/orange-circle.png',
 				
 			 });
 		}
@@ -121,6 +121,7 @@ function addMarkers(map,locations,res){
 			var marker = new google.maps.Marker({
 			   position: position,
 			   map: map,
+			   icon:'http://maps.google.com/mapfiles/kml/paddle/red-circle.png',
 			});
 			
 		}

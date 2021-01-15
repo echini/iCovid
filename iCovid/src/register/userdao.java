@@ -117,4 +117,24 @@ public class userdao {
 	}
 	return coords;
 	}
+	
+public void insertRes(Float res, user user) {
+		
+		loadDriver(dbDriver);
+		Connection con = getConnection();
+		
+		String sql="UPDATE user SET res=? WHERE email=?";
+		
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setFloat(1, res);
+			ps.setString(2, user.getEmail());
+			ps.executeUpdate();
+		}catch(SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }
