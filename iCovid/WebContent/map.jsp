@@ -33,7 +33,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="styleNew.css" />
 <title>iCovid</title>
 
 
@@ -45,16 +45,10 @@
      //2d array
 <%float[][] arr = new float[list.size()/2][2]; %>
  
-
  
  var arr = [];
-
-
-
 //populating the 2d array with each user's coords
-
 <% for (int reg=0; reg<list.size(); reg++) { %>
-
  	<% for (int i=0; i<list.size()/2; i++) { %>
  	arr.push([]);
  		<% for (int j=0 ; j<2; j++) { %>
@@ -97,7 +91,6 @@ function addMarkers(map,locations){
 		}
 		
 	}
-
 						
 </script>
 

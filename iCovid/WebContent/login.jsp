@@ -8,6 +8,12 @@
 
 
   <head>
+  	
+  	 <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+  	
     <!-- Required meta tags -->
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,7 +22,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	
 	 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="styleNew.css"/>
 	
 	
     <title>login form</title>
@@ -25,7 +31,7 @@
   <body>
 	
     <!-- Optional JavaScript; choose one of the two! -->
-     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc" type="text/javascript"></script>
+     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBhOLkFOsO14LjW4PVUVCja9PnvutCyuIc" type="text/javascript"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -58,15 +64,28 @@
 					</c:if>
 				</li>
 				<li class="nav-item">
-				<a href="about.jsp" class="nav-link"> About </a>
+				<a href='${pageContext.request.contextPath}/#about' class="nav-link"> About </a>
 				</li>
 			</ul>
+			
+			<c:if test='${not empty sessionScope.loguser}'> 
+	
+					<form action="logoutServlet" method="get">
+						<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
+						<a href='${pageContext.request.contextPath}/logoutServlet' class="button logout">Logout </a>
+					</form>
+	
+			  	</c:if> 
+				<c:if test='${ empty loguser}'>
+					<a href="login.jsp" class="signIn-btn"> Sign in</a>
+				</c:if>
 		</div>
 	</div>
 	</nav>
 	
 	
-		 <script>
+	
+	 <script>
 		if(window.navigator.geolocation){
 			x=window.navigator.geolocation.getCurrentPosition(success, failure);
 			
@@ -78,9 +97,9 @@
 			function failure(){}
 		}
     </script>
-    
-    
-	<c:if test='${empty sessionScope}'>
+	
+	
+	<c:if test='${empty loguser}'>
 	
 	<div id="login">
 	<div class="container-fluid">
@@ -95,13 +114,9 @@
 		<div class="form-group">
 			<input type="email" name="email" class="form-control"  placeholder="Enter your email here...">
 		</div>
+		
 			<input type="hidden" name="lat" id="lat" value="">
 		 	<input type="hidden" name="lng" id="lng" value="">
-		
-		 <div class="form-group form-check">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
-			<label class="form-check-label" for="exampleCheck1">I agree with the <b>Terms of Use</b></label>
-		 </div>
 		 
 		 <button type="submit" class="btn"> <i class="fas fa-sign-in-alt"></i> Submit</button>
 		 
@@ -120,9 +135,7 @@
 		<br>
 		<br>
 	<!--  If user is logged in hide the register panel-->
-	
-	<c:if test='${not empty sessionScope}'>
-
+	<c:if test='${not empty loguser}'>
 
 			<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
 		

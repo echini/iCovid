@@ -32,13 +32,14 @@ public class registerServlet extends HttpServlet {
 		    Float lat = Float.parseFloat(request.getParameter("lat"));
 
 		    Float lng = Float.parseFloat(request.getParameter("lng"));
-
+		    
+		    Float res=Float.parseFloat("0");
 
 		//create user database model
 		userdao userdb=new userdao();
 		
 		//create user model
-		user user=new user(name,email,lat,lng);
+		user user=new user(name,email,lat,lng,res);
 		
 		if(userdb.insert(user)) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");

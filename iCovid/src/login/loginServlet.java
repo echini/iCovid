@@ -35,14 +35,14 @@ public class loginServlet extends HttpServlet {
 		
 	    Float lng = Float.parseFloat(request.getParameter("lng"));
 	    
-	   
+	    Float res=Float.parseFloat("0");
 		 
 				
 		//create user database model
 		userdao userdb=new userdao();
 				
 		//create user model
-		user user=new user(logname,logemail,lat,lng);
+		user user=new user(logname,logemail,lat,lng,res);
 		
 		
 		 if( userdb.validate(user)){

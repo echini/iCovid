@@ -16,7 +16,7 @@
 	
 	 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap
 " rel="stylesheet">
-	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="styleNew.css"/>
     <title>Your Results</title>
 </head>
 <body>

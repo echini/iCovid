@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	
 	 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="styleNew.css"/>
     <title>test form</title>
   </head>
  
@@ -41,9 +44,20 @@
 				<a href='${pageContext.request.contextPath}/takeTest' class="nav-link"> Take the test </a>
 				</li>
 				<li class="nav-item">
-				<a href='${pageContext.request.contextPath}/about' class="nav-link"> About </a>
+				<a href='${pageContext.request.contextPath}#about' class="nav-link"> About </a>
 				</li>
 			</ul>
+			<c:if test='${not empty sessionScope.loguser}'> 
+	
+					<form action="logout" method="get">
+						<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
+						<a href='${pageContext.request.contextPath}/logout' class="button logout">Logout </a>
+					</form>
+	
+			  	</c:if> 
+				<c:if test='${ empty loguser}'>
+					<a href="login.jsp" class="signIn-btn"> Sign in</a>
+				</c:if>
 		</div>
 	</div>
 	</nav>

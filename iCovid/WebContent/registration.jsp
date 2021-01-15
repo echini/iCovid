@@ -13,18 +13,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	
 	 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="styleNew.css"/>
     <title>register form</title>
-    
-   
-   
+ 
   </head>
  
   <body>
 
     <!-- Optional JavaScript; choose one of the two! -->
      <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc" type="text/javascript"></script>
-
+	 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
@@ -63,9 +61,20 @@
 				
 				</li>
 				<li class="nav-item">
-				<a href="about.jsp" class="nav-link"> About </a>
+				<a href='${pageContext.request.contextPath}/#about' class="nav-link"> About </a>
 				</li>
 			</ul>
+			<c:if test='${not empty sessionScope.loguser}'> 
+	
+					<form action="logout" method="get">
+						<div class="button nameuser">Logged as, ${sessionScope.loguser.name}</div>
+						<a href='${pageContext.request.contextPath}/logout' class="button logout">Logout </a>
+					</form>
+	
+			  	</c:if> 
+				<c:if test='${ empty loguser}'>
+					<a href="login.jsp" class="signIn-btn"> Sign in</a>
+				</c:if>
 		</div>
 	</div>
 	</nav>
@@ -116,22 +125,30 @@
 			<input type="email" name="email" class="form-control"  placeholder="Enter your email here...">
 		</div>
 	
-		 <div class="form-group form-check">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
-			<label class="form-check-label" for="exampleCheck1">I agree with the <b>Terms of Use</b></label>
-		 </div>
-		 
 		 	<input type="hidden" name="lat" id="lat" value="">
 		 	<input type="hidden" name="lng" id="lng" value="">
-		 
-		
+		 	
 		 <button type="submit" class="btn"> <i class="fas fa-sign-in-alt"></i> Register</button>
 		 <br><br>
 		 <a href="login.jsp">Already have an account?</a>
 	</form>
 	</div>
+		<button id="modalBtn" class="button"> Check Terms of Use</button>
+		 <div id="simpleModal" class="modal">
+		 	<div class="modal-content">
+		 		<span class="closeBtn" > &times; </span>
+		 			<h1 class="header">Terms of Use</h1>
+		 			<p class="welcome">Welcome to iCovid!</p>
+					<p>These terms govern your use of iCovid once you are registered.<br>When you create your account you must agree and accept the following terms:</p>
+					<p>	<br>  <b>-> </b>Although our test results are grounded on research and analysis of the available 
+					data from reliable resources,they cannot ,in anyway,replace an official diagnostic process from your doctor. </p>
+					<p>	<br>  <b>-></b> In order for us to offer you the complete experience of iCovid,we will be using your IP address to estimate your current location. </p>
+					<p>	<br> <b> -></b> iCovid has been created exclusively for our university's purposes.</p>
+		 		</div>
+		 	</div>
 	</div>
 	</div>
+	
 	</c:if>
 	
 	<!--footer-->	
@@ -142,7 +159,41 @@
 				<a href="#" class="fab fa-linkedin-in"> </a>
 				<a href="#" class="fas fa-envelope"></a>
 				<a href="#" class="fab fa-twitter"></a>
-	</footer>	
+	</footer>
+	
+	<script > 
+		   //Get modal element
+		var modal=document.getElementById("simpleModal");
+		
+		//Get open modal button
+		var modalBtn=document.getElementById("modalBtn");
+		
+		//Get close button
+		var closeBtn=document.getElementsByClassName("closeBtn")[0];
+		
+		//Listen for click
+		//modalBtn.addEventListener("click",openModal);
+		
+		//Listen for close click
+		//closeBtn.addEventListener("click",closeModal);
+		modalBtn.onclick=function(){
+			modal.style.display="block";
+		}
+		
+		closeBtn.onclick=function(){
+			modal.style.display="none";
+		}
+		
+		
+		//Function to close modal if outsideclick
+		window.onclick=function(e){
+			if(e.target==modal){
+				modal.style.display="none";
+			}
+		}
+</script>   
+
+		
    
    </body>
  </html>

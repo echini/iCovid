@@ -47,7 +47,7 @@ public class userdao {
 		boolean res=false;
 		loadDriver(dbDriver);
 		Connection con = getConnection();
-		String sql = "INSERT INTO user values(?,?,?,?)";
+		String sql = "INSERT INTO user values(?,?,?,?,?)";
 		
 		PreparedStatement ps;
 		try {
@@ -56,6 +56,7 @@ public class userdao {
 		ps.setString(2, user.getEmail());
 		ps.setFloat(3, user.getLat());
 		ps.setFloat(4, user.getLng());
+		ps.setFloat(4, user.getRes());
 		ps.executeUpdate();
 		res=true;
 		} catch (SQLException e) {
@@ -95,7 +96,7 @@ public class userdao {
 		loadDriver(dbDriver);
 		Connection con = getConnection();
 		
-		String sql = "SELECT lat,lng FROM user";
+		String sql = "SELECT lat,lng,res FROM user";
 		
 		PreparedStatement ps;
 		try {
@@ -105,6 +106,7 @@ public class userdao {
 			while(rs.next()) {
 				coords.add(rs.getFloat("lat"));
 				coords.add(rs.getFloat("lng"));
+				coords.add(rs.getFloat("res"));
 				
 			}
 			System.out.println(coords);
