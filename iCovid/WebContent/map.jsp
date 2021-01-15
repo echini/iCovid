@@ -42,21 +42,29 @@
 	
 <% ArrayList<Float> list= new ArrayList<Float>();%>
 <%list= (ArrayList<Float>)request.getAttribute("coords");%>
-     //2d array
-<%float[][] arr = new float[list.size()/2][2]; %>
- 
+
+
  
  var arr = [];
+
+
+
 //populating the 2d array with each user's coords
+
+
 <% for (int reg=0; reg<list.size(); reg++) { %>
- 	<% for (int i=0; i<list.size()/2; i++) { %>
+ 	<% for (int i=0; i<list.size()/3; i++) { %>
  	arr.push([]);
- 		<% for (int j=0 ; j<2; j++) { %>
+ 		<% for (int j=0 ; j<3; j++) { %>
 		 	arr[<%= i %>][<%=j%>] = <%= list.get(reg++) %>;
 	 <% } %>
    <% } %>
  <% } %>
-	 
+ 
+
+
+ 
+ //print
  for (var i in arr) 
  {
     console.log("row " + i);
@@ -65,32 +73,60 @@
        console.log(" " + arr[i][j]);
       }
  }
-		
-	function initMap(){
-		var options={
-			zoom:8,
-			center:new google.maps.LatLng(40.6,22.07)
-		}
-		var map = new google.maps.Map(document.getElementById("map"),options);
-					    
 	
+//MAP
+ 
+function initMap(){
+	var options={
+		zoom:8,
+		center:new google.maps.LatLng(40.6,22.07)
+	}
+	
+	var map = new google.maps.Map(document.getElementById("map"),options);
+					    
 	addMarkers(map,arr);
 }
 	
 	
-function addMarkers(map,locations){
+	
+function addMarkers(map,locations,res){
 		
 	for(var i = 0; i < arr.length; i++ ) {
 		
+		
 		const coord=arr[i];
+		
+		
 		var position = new google.maps.LatLng(coord[0],coord[1]);
+		
+		if(coord[2] <= 33){
 		var marker = new google.maps.Marker({
 		   position: position,
-		    map: map
+		   map: map,
+		   //icon:iconBase + 'orange-blank.png',
+			
 		 });
 		}
 		
+		if (coord[2] > 33 &&coord[2] <= 66){
+			
+			var marker = new google.maps.Marker({
+			   position: position,
+			   map: map,
+			   //iconBase + 'parking_lot_maps.png'
+				
+			 });
+		}
+		if(coord[2] > 66){
+			var marker = new google.maps.Marker({
+			   position: position,
+			   map: map,
+			});
+			
+		}
 	}
+}
+
 						
 </script>
 

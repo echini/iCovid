@@ -20,7 +20,9 @@
   <body>
 
     <!-- Optional JavaScript; choose one of the two! -->
-
+ <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyCUSw9OONExtOp4ubTxBR-kC1eswnot3mc" type="text/javascript"></script>
+	 
+	 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
@@ -61,6 +63,20 @@
 	</div>
 	</nav>
 	
+	 <script>
+		if(window.navigator.geolocation){
+			x=window.navigator.geolocation.getCurrentPosition(success, failure);
+			
+			function success(position){
+				document.getElementById('lat').value=position.coords.latitude;
+				document.getElementById('lng').value=position.coords.longitude;
+		
+			}
+			function failure(){}
+		}
+    </script>
+    
+    
 	<!--register form-->
 	<div id="register">
 	<div class="container-fluid">
@@ -75,7 +91,9 @@
 		<div class="form-group">
 			<input type="email" name="email" class="form-control"  placeholder="Enter your email here...">
 		</div>
-		
+		<input type="hidden" name="lat" id="lat" value="">
+		 	<input type="hidden" name="lng" id="lng" value="">
+		 	
 		 <div class="form-group form-check">
 			<input type="checkbox" class="form-check-input" id="exampleCheck1">
 			<label class="form-check-label" for="exampleCheck1">I agree with the <b>Terms of Use</b></label>

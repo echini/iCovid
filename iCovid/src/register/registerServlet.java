@@ -33,7 +33,7 @@ public class registerServlet extends HttpServlet {
 
 		    Float lng = Float.parseFloat(request.getParameter("lng"));
 		    
-		    Float res=Float.parseFloat("0");
+		    Float res=(float)0;
 
 		//create user database model
 		userdao userdb=new userdao();

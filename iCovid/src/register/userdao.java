@@ -56,7 +56,7 @@ public class userdao {
 		ps.setString(2, user.getEmail());
 		ps.setFloat(3, user.getLat());
 		ps.setFloat(4, user.getLng());
-		ps.setFloat(4, user.getRes());
+		ps.setFloat(5, user.getRes());
 		ps.executeUpdate();
 		res=true;
 		} catch (SQLException e) {
