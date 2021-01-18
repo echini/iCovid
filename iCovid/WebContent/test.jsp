@@ -17,16 +17,8 @@
 	<link rel="stylesheet" href="styleNew.css"/>
     <title>test form</title>
     
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script>
-		$(document).ready(function(){
-   		 	$('input:checkbox').click(function() {
-       		 $('input:checkbox').not(this).prop('checked', false);
-    		});
-		});
-	</script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
   </head>
  
   <body>
@@ -83,6 +75,7 @@
 	<div class="question">
 	 	<h3>Question 1</h3>
 	 	<div class="form-group">
+	 	 
 	 	<p>Select your gender</p>
          <table>
             <tr>
@@ -105,25 +98,24 @@
 	 	<p>Select your age</p>
          <table>
             <tr>
-               <td><input type="checkbox" name="age" value="18-34"/>18-34</td>
+               <td><input type="checkbox" name="age"  value="18-34"/>18-34</td>
             </tr>
             <tr>
-               <td><input type="checkbox" name="age" value="35-50"/>35-50</td>
+               <td><input type="checkbox" name="age"  value="35-50"/>35-50</td>
             </tr>
             <tr>
                <td><input type="checkbox" name="age" value="51-65"/>51-65</td>
             </tr>
              <tr>
-               <td><input type="checkbox" name="age" value="66-79"/>66-79</td>
+               <td><input type="checkbox" name="age"  value="66-79"/>66-79</td>
             </tr>
             <tr>
-               <td><input type="checkbox" name="age" value="80+"/>80+</td>
+               <td><input type="checkbox" name="age"  value="80+"/>80+</td>
             </tr>
          </table>
          </div>
       </div>
-	
-	
+      
 		<div class="question">
 	 	<h3>Question 3</h3>
 	 	<div class="form-group">
