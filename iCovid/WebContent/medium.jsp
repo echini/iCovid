@@ -55,9 +55,8 @@
 							class="nav-link"> Take the test </a>
 					</c:if>
 				</li>
-				<li class="nav-item">
-				<a href="about.jsp" class="nav-link"> About </a>
-				</li>
+				<li class="nav-item"><a href="#about" class="nav-link">
+							About </a></li>
 			</ul>
 		</div>
 	</div>
@@ -69,7 +68,7 @@
 		<div class="medium">
 			<h1>Medium Risk Level </h1>
 			<h3>Based on your symptoms and your exposure to the virus history, the risk that you are infected from  COVID-19 is MEDIUM. There is na reason to panic, althought it is important to contact a professional doctor or NPHO.<br><br>For everyone's safety and health follow the instructions provided for the general population.</h3>
-			<a href="#" class="btn btn-outline-light btn-lg"> Instructions </a>
+			<a href="https://eody.gov.gr/neos-koronaios-covid-19/" class="btn btn-outline-light btn-lg"> Instructions </a>
 			<a href="test.jsp" class="btn btn-outline-light btn-lg"> Retake </a>
 			<a href="map.jsp" class="btn btn-outline-light btn-lg"> Map </a>
 		</div>

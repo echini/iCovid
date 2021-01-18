@@ -104,6 +104,7 @@ function addMarkers(map,locations){
 		   position: position,
 		   map: map,
 		   icon:'http://maps.google.com/mapfiles/kml/paddle/grn-circle.png',
+		   title: "Low Risk",
 			
 		 });
 		}
@@ -114,6 +115,7 @@ function addMarkers(map,locations){
 			   position: position,
 			   map: map,
 			   icon:'http://maps.google.com/mapfiles/kml/paddle/orange-circle.png',
+			   title: "Medium Risk",
 				
 			 });
 		}
@@ -122,6 +124,7 @@ function addMarkers(map,locations){
 			   position: position,
 			   map: map,
 			   icon:'http://maps.google.com/mapfiles/kml/paddle/red-circle.png',
+			   title: "High Risk",
 			});
 			
 		}
@@ -175,7 +178,7 @@ function addMarkers(map,locations){
 							<a href="registration.jsp"
 							class="nav-link"> Take the test </a>
 					</c:if>
-					<li class="nav-item"><a href="about.jsp" class="nav-link">
+					<li class="nav-item"><a href="#about" class="nav-link">
 							About </a></li>
 				</ul>
 			</div>
@@ -185,6 +188,12 @@ function addMarkers(map,locations){
 
 <h1 class="landing-text">Risk Map</h1>
 <div id="map"></div>
+
+<div class="map-info">
+	<p>This map illustrates the epidemiological levels per region according to the users of the application that took the test.
+	The results are displayed in green markers by users with a low probability of getting sick, in orange markers with a medium propability of getting sick and in red markers with a high probability of getting sick.
+	Discover possible cases in your area and protect yourself from getting exposed to coronavirus.</p>
+</div>
 
  
 	<!--footer-->

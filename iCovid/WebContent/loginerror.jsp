@@ -49,9 +49,8 @@
 							class="nav-link"> Take the test </a>
 					</c:if>
 				</li>
-				<li class="nav-item">
-				<a href="about.jsp" class="nav-link"> About </a>
-				</li>
+				<li class="nav-item"><a href="#about" class="nav-link">
+							About </a></li>
 			</ul>
 		</div>
 	</div>

@@ -301,7 +301,10 @@ html,body{
 	text-shadow: .1rem .1rem .5rem lightgrey;
 }
 
-
+.map-info{
+	color:white;
+	padding:25px;
+}
 /*---Test---*/
 
 #test{
