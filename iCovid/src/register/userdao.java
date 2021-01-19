@@ -13,7 +13,7 @@ public class userdao {
 
 	private String dbUrl = "jdbc:mysql://localhost:3306/userdb?serverTimezone=UTC";
 	private String dbUname = "root";
-	private String dbPassword = "";
+	private String dbPassword = "portaria";
 	private String dbDriver = "com.mysql.cj.jdbc.Driver";
 
 
